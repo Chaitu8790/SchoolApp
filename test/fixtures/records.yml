@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rmarksobt: 1
+  rtotmarks: 1
+
+two:
+  rmarksobt: 1
+  rtotmarks: 1

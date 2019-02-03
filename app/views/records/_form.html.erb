@@ -1,0 +1,55 @@
+<%# binding.pry%>
+<%= form_with(model: record, local: true) do |form| %> 
+
+<p id="notice"><%= notice %></p>
+
+
+
+
+  <tbody>
+
+ <tr>
+
+  <td><%= student.studentcode%></td>
+  <td><%= student.name%></td>
+  <td><%= subject.name%></td>
+ 
+<%= form.hidden_field :subject_id, :value => subject.id %>
+<%= form.hidden_field :student_id, :value => student.id%>
+    <% @rec = Record.where(student_id: student.id, subject_id: subject.id).last %>
+    <% if @rec.present? %>
+
+        <td><%= best_in_place @rec, :rmarksobt, :as => :input,:url => recedit_path(@rec.id), remote: true %></td>
+        <td><%= best_in_place @rec, :rtotmarks, :as => :input,:url => recedit_path(@rec.id), remote: true %></td>
+    <% else %>
+ <td>
+
+      <%= form.number_field :rmarksobt, :class => 'rm' %>
+  </td>
+
+  <td><%= form.number_field :rtotmarks, :class => 'rt' %></td>
+   <td><%= form.submit %></td>
+  <% end %>
+    <%# binding.pry %>
+
+
+
+
+ 
+
+  
+   
+ </tr>
+
+<% end %>
+
+  </tbody>
+<script type="text/javascript">
+  $(document).ready(function() {
+  /* Activating Best In Place */
+  jQuery(".best_in_place").best_in_place();
+});
+
+
+
+</script>

@@ -1,0 +1,49 @@
+<%= form_with(model: student, local: true) do |form| %>
+  <% if student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+<div class="field">
+  
+<%= form.file_field :avatar %>
+  
+</div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+
+<div class="upload-preview" style="height: 300px!important;width: 300px !important; overflow: scroll;">
+    <img />
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    var preview = $(".upload-preview img");
+
+    $('input[type="file"]').change(function(event){
+       var input = $(event.currentTarget);
+       var file = input[0].files[0];
+       var reader = new FileReader();
+       reader.onload = function(e){
+           image_base64 = e.target.result;
+           preview.attr("src", image_base64);
+       };
+       reader.readAsDataURL(file);
+    });
+});
+</script>
