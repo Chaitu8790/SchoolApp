@@ -7,9 +7,45 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <!-- <h1 style="color:white; ">MySchool</h1> -->
+       <%#= image_tag( root_url + "assets/school-icon-png-14054.png", size: "50x50", :alt => "rss feed") %>
+       
+<nav>
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="/">Home</a></li>
+    <li><a href="/teachers">Teachers</a></li>
+    <li><a href="/subjects">Subjects</a></li>
+    <li><a href="/students">Students</a></li>
+    <li><a href="" class="rec">Marks</a></li>        
+    <li><a href="/ranks">Ranks</a></li>
+
+  </ul>
+</nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
+  <style type="text/css">
+    #logo{
+      color:orange;
+      font-size:20px;
+      margin-top:50px!important;  
+    }
+  </style>
+  <script type="text/javascript">
+
+  $(".rec").click(function(){
+    window.location.href = "/records";
+  });
+     
+  
+  </script>
 </html>

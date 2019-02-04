@@ -1,5 +1,11 @@
 <h1>Ranks</h1>
-<table>
+<style type="text/css">
+  td{
+    padding: 7px;
+  }
+</style>
+<table class="table-bordered table-striped " id="myTable" style="width:100%">
+
   <thead>
     <tr>
       <th>StudentID</th>
@@ -7,34 +13,30 @@
 	   <th>ObtainedMarks</th>
       <th>TotalMarks</th>
       <th>Rank</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+<tbody>
 
     <% rankarr = []%>
     <% s_rank =[] %>
     <% @recordsarray.map do |e, value| %>
-  <%   @sum= 0
+    <%   @sum= 0
      @totsum = 0  %>	
-
-<% value.each do |u| 
-
- @sum =  u.rmarksobt + @sum
-  @totsum =  u.rtotmarks + @totsum
-  @student_id = u.student_id
- end %>
+    <% value.each do |u| 
+    @sum =  u.rmarksobt + @sum
+    @totsum =  u.rtotmarks + @totsum
+    @student_id = u.student_id
+    end %>
 <%# binding.pry%>
-  <% finalrank = [@student_id, @sum, @totsum]
+    <% finalrank = [@student_id, @sum, @totsum]
 
         rankarr << finalrank
         # s_rank = [@sum]
         s_rank << @sum
 
-   %>
-
- <% end %>
+    %>
+    <% end %>
   <%  rankarr.sort! {|a,b| a[1] <=> b[1] }
   rankarr = rankarr.reverse %>
   <% s_rank = s_rank.sort.reverse.uniq %>
@@ -42,12 +44,11 @@
   <tr>
     <% @st = Student.where(id:r[0]).last %>
     <td><%= @st.studentcode %></td>
-  <td><%= @st.name %></td>
-  
-  <td><%= @stobt =  r[1] %></td>
-  <td><%= @sttot = r[2] %></td>
-  <% if @stu_count * @sub_count == @records.count %>
-  <td><%= s_rank.find_index(r[1])+1 %></td>
+    <td><%= @st.name %></td> 
+    <td><%= @stobt =  r[1] %></td>
+    <td><%= @sttot = r[2] %></td>
+    <% if @stu_count * @sub_count == @records.count %>
+    <td><%= s_rank.find_index(r[1])+1 %></td>
   <% end %>
  </tr>
  <% end %>
@@ -55,7 +56,7 @@
 
 <%# binding.pry %>
 
-  </tbody>
+</tbody>
 </table>
 
  

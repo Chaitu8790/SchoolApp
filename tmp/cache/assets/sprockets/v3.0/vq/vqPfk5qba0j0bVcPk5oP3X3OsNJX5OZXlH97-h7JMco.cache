@@ -1,0 +1,7 @@
+I"j(function() {
+  $('#teachers').dataTable({
+    sPaginationType: "full_numbers"
+  });
+
+}).call(this);
+:ET

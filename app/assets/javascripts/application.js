@@ -13,8 +13,11 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery_ujs
+//= require popper
+//= require bootstrap-sprockets
 //= require best_in_place
 //= require best_in_place.jquery-ui
 //= require activestorage
+//= require dataTables/datatables.min.js
 //= require turbolinks
 //= require_tree .
