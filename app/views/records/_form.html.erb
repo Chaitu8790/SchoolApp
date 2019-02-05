@@ -16,8 +16,8 @@
     <%= form.hidden_field :student_id, :value => student.id%>
     <% @rec = Record.where(student_id: student.id, subject_id: subject.id).last %>
     <% if @rec.present? %>
-    <td><%= best_in_place @rec, :rmarksobt, :as => :input,:url => recedit_path(@rec.id), remote: true %></td>
-    <td><%= best_in_place @rec, :rtotmarks, :as => :input,:url => recedit_path(@rec.id), remote: true %></td>
+    <td><%= best_in_place @rec, :rmarksobt, :as => :input,:url => recedit_path(@rec.id), remote: true, :style => 'color:darkblue;' %></td>
+    <td><%= best_in_place @rec, :rtotmarks, :as => :input,:url => recedit_path(@rec.id), remote: true, :style => 'color:darkblue;' %></td>
     <% else %>
     <td>
     <%= form.number_field :rmarksobt, :class => 'rm' ,:required => true %>

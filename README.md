@@ -1,28 +1,10 @@
-<<<<<<< HEAD
-# README
+A SchoolApp with Teachers,Students,Subjects,Marks,Ranks
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby version: 2.4.4
+Rails version: 5.2.2
+Database: sqlite3
 
-Things you may want to cover:
 
-* Ruby version
+Updating marks using best_in_place.
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
-# SchoolApp
->>>>>>> 4697a902b82bfa840a206c773be1ded3cbfc728a
